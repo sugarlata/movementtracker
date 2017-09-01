@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # MovementTracker #
 
 ###Overview of the project structure
@@ -18,6 +19,7 @@ The MovementTracker Application is made up of a number of modules:
 The application uses the MVC methodology and built in kivy operates
 off the following structure:
 
+###Module Naming
 Each module is named in the following format:
 xxxxxxxxx_model.py - Containing the model
 xxxxxxxxx_vc.py - Containing the view and the controller
@@ -36,7 +38,7 @@ After the builder string, the controller logic follows.
 This will enable reuse of code in the future if platforms beyond
 kivy are required.
 
-
+###Other Modules
 Alongside this are two backend modules:
 
 mt_objects.py

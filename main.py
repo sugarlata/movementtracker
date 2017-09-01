@@ -30,17 +30,52 @@ from kivy.animation import Animation
 from kivy.clock import Clock
 from kivy.properties import DictProperty
 import sqlite3 as lite
-from habit import Habit
 from os.path import isfile
 from kivymd.theme_picker import MDThemePicker
 
 
-class Swappy(App):
+class MovementTracker(App):
 
+    # This acts as the theme manager for the application
+    theme_cls = ThemeManager()
+
+    # This function is run when building the app starts
     def build(self):
-
         return Builder.load_file('main.kv')
+
+    # Generic Navigation Function
+    def navigate_to(self, scn_name, scn_direction):
+        self.root.ids.scn_base.transition.direction = scn_direction
+        self.root.ids.scn_base.current = scn_name
+
+    # Right Hand top side context menu
+    def open_help(**kwargs):
+        pass
+        # TODO Code in the help screen
+
+    def open_about(**kwargs):
+        pass
+    # TODO Code in the about screen
+
+    # Menu list, in the form of a list of dictionaries, where dict
+    # keys are the object attributes.
+    r_menu_items = [
+        {'viewclass': 'MDMenuItem',
+         'text': 'Help',
+         'on_release': open_help},
+        {'viewclass': 'MDMenuItem',
+         'text': 'Change Theme',
+         'on_release': lambda: MDThemePicker().open()},
+        {'viewclass': 'MDMenuItem',
+         'text': 'About',
+         'on_release': open_about},
+    ]
+
+    # R Menu - this is the top right context menu
+    def r_menu(self, caller):
+        MDDropdownMenu(items=self.r_menu_items, width_mult=4).open(caller)
+
 
 
 if __name__ == '__main__':
-    Swappy().run()
+    MovementTracker().run()

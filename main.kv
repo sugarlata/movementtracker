@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # TODO Clean up Imports
 #:import Toolbar kivymd.toolbar.Toolbar
 #:import ThemeManager kivymd.theming.ThemeManager
@@ -33,17 +34,23 @@
 #:import MDThemePicker kivymd.theme_picker.MDThemePicker
 #:import MDBottomNavigation kivymd.tabs.MDBottomNavigation
 #:import MDBottomNavigationItem kivymd.tabs.MDBottomNavigationItem
-#:import GoalDash goaldash
-#:import AddEntry addentry
-#:import HabitListScreen habitlist
-#:import HabitConfigScreen habitconfig
-#:import ChartDash chartdash
-#:import ChartWidget chartdash
+#:import LoginScreen login_vc
 
 NavigationLayout:
     id: nav_layout
     MDNavigationDrawer:
         id: nav_drawer
+
+        NavigationDrawerToolbar:
+            title: 'Movement Tracker'
+
+        NavigationDrawerIconButton:
+            icon: 'account'
+            text: 'Login Screen'
+            on_release: app.navigate_to('Login Screen', 'right')
+
+
+
 
     BoxLayout:
         orientation: 'vertical'
@@ -51,7 +58,7 @@ NavigationLayout:
 
         Toolbar:
             id: toolbar
-            title: 'Swappy'
+            title: 'Movement Tracker'
             md_bg_color: app.theme_cls.primary_color
             background_palette: 'Primary'
             background_hue: '500'
@@ -62,34 +69,11 @@ NavigationLayout:
             id: scn_base
 
 
-            GoalDash:
-                id: dash_base
+            LoginScreen:
+                id: login_scn
                 app_class: app
-                name: 'Dashboard Screen'
+                name: 'Login Screen'
                 manager: scn_base
-
-            ChartDash:
-                id: chart_dash
-                name: 'Chart Dashboard'
-                manager: scn_base
-
-            AddEntry:
-                id: add_entry
-                app_class: app
-                name: 'Add Entry Screen'
-                manager: scn_base
-
-            HabitListScreen:
-                id: habit_list_screen
-                name: 'Habit List Screen'
-                manager: scn_base
-
-            HabitConfigScreen:
-                id: habit_config_screen
-                name: 'Habit Config Screen'
-                manager: scn_base
-                window_root: root
-
 
 
 
