@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # MovementTracker #
 
 ###Overview of the project structure
