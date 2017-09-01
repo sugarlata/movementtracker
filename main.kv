@@ -35,6 +35,7 @@
 #:import MDBottomNavigation kivymd.tabs.MDBottomNavigation
 #:import MDBottomNavigationItem kivymd.tabs.MDBottomNavigationItem
 #:import LoginScreen login_vc
+#:import SummaryScreen summary_vc
 
 NavigationLayout:
     id: nav_layout
@@ -49,6 +50,10 @@ NavigationLayout:
             text: 'Login Screen'
             on_release: app.navigate_to('Login Screen', 'right')
 
+        NavigationDrawerIconButton:
+            icon: 'view-dashboard'
+            text: 'Summary Screen'
+            on_release: app.navigate_to('Summary Screen', 'left')
 
 
 
@@ -68,11 +73,16 @@ NavigationLayout:
         ScreenManager:
             id: scn_base
 
-
             LoginScreen:
                 id: login_scn
                 app_class: app
                 name: 'Login Screen'
+                manager: scn_base
+
+            SummaryScreen:
+                id: summary_scn
+                app_class: app
+                name: 'Summary Screen'
                 manager: scn_base
 
 

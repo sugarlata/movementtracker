@@ -3,17 +3,18 @@
 class MVPerson(object):
 
     def __init__(self):
-        self.person_id = 0
-        self.person_fname = ''
-        self.person_lname = ''
-        self.person_status = ''
-        self.person_postcode = 0
-        self.person_phonenumber = ''
-        self.person_email = ''
-        self.person_contacttype = ''
-        self.person_attendance = {}
-        self.person_placement = {}
-        self.person_church = ''
+        
+        self.attrib_dict = {'person_id': None,
+        'person_fname': None,
+        'person_lname': None,
+        'person_status': None,
+        'person_postcode': None,
+        'person_phonenumber': None,
+        'person_email': None,
+        'person_contacttype': None,
+        'person_attendance': {},
+        'person_placement': {},
+        'person_church': None}
 
 
 class MVMissionary(MVPerson):
@@ -21,8 +22,8 @@ class MVMissionary(MVPerson):
     def __init__(self):
         super(MVMissionary, self).__init__()
 
-        self.missionary_datestart = ''
-        self.missionary_dateend = ''
+        self.attrib_dict['missionary_datestart'] = None
+        self.attrib_dict['missionary_dateend'] = None
 
 
 class MVStudent(MVPerson):
@@ -30,63 +31,63 @@ class MVStudent(MVPerson):
     def __init__(self):
         super(MVStudent, self).__init__()
 
-        self.student_currentcakelevel = ''
-        self.student_datets = ''
-        self.student_datebt = ''
-        self.student_datecb = ''
-        self.student_dateec = ''
-        self.student_datestartuni = ''
-        self.student_dateenduni = ''
-        self.student_levelinvolvement = ''
-        self.student_spiritualstate = ''
-        self.student_parentid = 0
-        self.student_levelleadership = ''
-        self.student_enrolment = {}
+        self.attrib_dict['student_currentcakelevel'] = None
+        self.attrib_dict['student_datets'] = None
+        self.attrib_dict['student_datebt'] = None
+        self.attrib_dict['student_datecb'] = None
+        self.attrib_dict['student_dateec'] = None
+        self.attrib_dict['student_datestartuni'] = None
+        self.attrib_dict['student_dateenduni'] = None
+        self.attrib_dict['student_levelinvolvement'] = None
+        self.attrib_dict['student_spiritualstate'] = None
+        self.attrib_dict['student_parentid'] = None
+        self.attrib_dict['student_levelleadership'] = None
+        self.attrib_dict['student_enrolment'] = {}
 
 
 class MVPlacement:
 
     def __init__(self):
-        self.placement_campusid = 0
-        self.placement_personid = 0
-        self.placement_campusname = ''
-        self.placement_campusdatestart = ''
-        self.placement_campusdateend = ''
-        self.placement_hoursavailable = 0
-        self.placement_role = ''
-        self.campus_name = ''
-
+        
+        self.attrib_dict = {'placement_campusid': None,
+        'placement_personid': None,
+        'placement_campusname': None,
+        'placement_campusdatestart': None,
+        'placement_campusdateend': None,
+        'placement_hoursavailable': None,
+        'placement_role': None,
+        'campus_name': None}
 
 class MVAttendance:
 
     def __init__(self):
 
-        self.attendance_personid = 0
-        self.attendance_eventid = 0
-        self.attendance_datestart = ''
-        self.attendance_dateend = ''
-        self.attendance_committoaction = ''
-        self.attendance_levelinvolvement = ''
-        self.attendance_frequency = ''
-        self.event_id = 0
-        self.event_name = ''
-        self.event_theme = ''
-        self.event_location = ''
-        self.event_datestart = ''
-        self.event_dateend = ''
+        self.attrib_dict = {'attendance_personid': None,
+        'attendance_eventid': None,
+        'attendance_datestart': None,
+        'attendance_dateend': None,
+        'attendance_committoaction': None,
+        'attendance_levelinvolvement': None,
+        'attendance_frequency': None,
+        'event_id': None,
+        'event_name': None,
+        'event_theme': None,
+        'event_location': None,
+        'event_datestart': None,
+        'event_dateend': None}
 
 
 class MVEnrolment:
 
     def __init__(self):
 
-        self.enrolment_campusid = 0
-        self.enrolment_studentid = 0
-        self.enrolment_facultyid = 0
-        self.enrolment_campusdatestart = ''
-        self.enrolment_campusdateend = ''
-        self.enrolment_hoursavailable = 0
-        self.enrolment_role = ''
-        self.faculty_headrep = ''
-        self.faculty_name = ''
-        self.campus_name = ''
+        self.attrib_dict = {'enrolment_campusid': None,
+        'enrolment_studentid': None,
+        'enrolment_facultyid': None,
+        'enrolment_campusdatestart': None,
+        'enrolment_campusdateend': None,
+        'enrolment_hoursavailable': None,
+        'enrolment_role': None,
+        'faculty_headrep': None,
+        'faculty_name': None,
+        'campus_name': None}

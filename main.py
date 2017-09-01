@@ -32,12 +32,14 @@ from kivy.properties import DictProperty
 import sqlite3 as lite
 from os.path import isfile
 from kivymd.theme_picker import MDThemePicker
-
+from db_connection import MVConnection
 
 class MovementTracker(App):
 
     # This acts as the theme manager for the application
     theme_cls = ThemeManager()
+    mv_conn = MVConnection()
+    campus_id = 1
 
     # This function is run when building the app starts
     def build(self):
@@ -75,6 +77,10 @@ class MovementTracker(App):
     def r_menu(self, caller):
         MDDropdownMenu(items=self.r_menu_items, width_mult=4).open(caller)
 
+    # Before opening screen, do this:
+
+    def on_start(self):
+        self.navigate_to('Summary Screen', 'left')
 
 
 if __name__ == '__main__':
