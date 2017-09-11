@@ -2,8 +2,8 @@
 """
 Classes:
 MVPerson - holds generic people's details
-MVMissionary
-MVStudent
+MVMissionary - super class of MVPerson which specialises in missionaries
+MVStudent - super class of MVPerson which specialises in students
 MVPlacement
 MVAttendance
 MVEnrolment
@@ -15,23 +15,39 @@ class MVPerson(object):
         self.person_fname = '' #first name
         self.person_lname = '' #last name
         self.person_status = '' #what is the status for?
-        self.person_postcode = 0 #
+        self.person_postcode = 0
         self.person_phonenumber = ''
         self.person_email = ''
         self.person_contacttype = ''
-        self.person_attendance = {}
+        self.person_attendance = {} #what is this for?
         self.person_placement = {}
-        self.person_church = ''
+        self.person_church = '' #the church that the person goes to
         ##Do we want address details as well?
 
+    ####TO DO#####
+    def getPerson(self):
+        pass
+
+    def updatePerson(self):
+        pass
+
 class MVMissionary(MVPerson):
-    #
+    #This class is for missionaries
     def __init__(self):
         super(MVMissionary, self).__init__()
 
         self.missionary_datestart = '' #the missionaries start date
         self.missionary_dateend = '' #the missionaries end date
+        #Need a field for the campus that the missionary is based at? More fields to define a missionary?
 
+    def getMissionary(self): ##Need to double check if this function works
+        missio = super(MVMissionary, self).getPerson(self.person_id)
+        return missio
+
+    #####TO DO#####
+    def updateMissionary(self):
+        super(MVMissionary, self).updatePerson(self.person_id)
+        pass
 
 class MVStudent(MVPerson):
 
@@ -51,6 +67,13 @@ class MVStudent(MVPerson):
         self.student_levelleadership = '' #what levels of them are there?
         self.student_enrolment = {} #why is this a dictionary?
 
+    def getStudent(self):
+        student = super(MVStudent, self).getPerson(self.person_id)
+        return student
+
+    def updateStudent(self):
+        super(MVStudent, self).updatePerson(self.person_id)
+        pass
 
 class MVPlacement: #what is this for?
 
@@ -63,7 +86,6 @@ class MVPlacement: #what is this for?
         self.placement_hoursavailable = 0
         self.placement_role = ''
         self.campus_name = ''
-
 
 class MVAttendance: #this is for attendance of events (?)
 
@@ -83,6 +105,11 @@ class MVAttendance: #this is for attendance of events (?)
         self.event_datestart = ''
         self.event_dateend = ''
 
+    def getAttendance(self):
+        pass
+
+    def updateAttendance(self):
+        pass
 
 class MVEnrolment: #this is for where the student is enrolled (?)
 
@@ -98,3 +125,9 @@ class MVEnrolment: #this is for where the student is enrolled (?)
         self.faculty_headrep = ''
         self.faculty_name = ''
         self.campus_name = ''
+
+    def getEnrolment(self):
+        pass
+
+    def updateEnrolment(self):
+        pass
