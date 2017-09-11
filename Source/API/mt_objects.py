@@ -24,11 +24,14 @@ class MVPerson(object):
         self.person_church = '' #the church that the person goes to
         ##Do we want address details as well?
 
-    ####TO DO#####
-    def getPerson(self):
+    #####TO DO#####
+    def getPerson(self, person_id):
         pass
 
-    def updatePerson(self):
+    def updatePerson(self): # Need a list of fields
+        pass
+
+    def getAllPeople(self):
         pass
 
 class MVMissionary(MVPerson):
@@ -40,13 +43,16 @@ class MVMissionary(MVPerson):
         self.missionary_dateend = '' #the missionaries end date
         #Need a field for the campus that the missionary is based at? More fields to define a missionary?
 
-    def getMissionary(self): ##Need to double check if this function works
+    def getMissionary(self, person_id): ##Need to double check if this function works
         missio = super(MVMissionary, self).getPerson(self.person_id)
         return missio
 
     #####TO DO#####
     def updateMissionary(self):
         super(MVMissionary, self).updatePerson(self.person_id)
+        pass
+
+    def getAllMissionaries(self):
         pass
 
 class MVStudent(MVPerson):
@@ -75,6 +81,9 @@ class MVStudent(MVPerson):
         super(MVStudent, self).updatePerson(self.person_id)
         pass
 
+    def getAllStudents(self):
+        pass
+
 class MVPlacement: #what is this for?
 
     def __init__(self):
@@ -87,6 +96,11 @@ class MVPlacement: #what is this for?
         self.placement_role = ''
         self.campus_name = ''
 
+    def getPlacement(self):
+        pass
+
+    def updatePlacement(self):
+        pass
 class MVAttendance: #this is for attendance of events (?)
 
     def __init__(self):
@@ -130,4 +144,7 @@ class MVEnrolment: #this is for where the student is enrolled (?)
         pass
 
     def updateEnrolment(self):
+        pass
+
+    def getAllEnrolments(self):
         pass

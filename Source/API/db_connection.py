@@ -29,12 +29,6 @@ class MVPersonDict: #this is to access the dictionary of people
         self.cur = cur
 
     #####TO DO#####
-    def getAllPeople(self):
-        pass
-
-    def getAlMissionaries(self):
-        pass
-
     def getAllStudents(self):
         pass
 
