@@ -57,7 +57,7 @@ class MVPlacement: #what is this for?
     def __init__(self):
         self.placement_campusid = 0 #primary key
         self.placement_personid = 0 #foreign key
-        self.placement_campusname = ''
+        self.placement_campusname = '' #name of the university campus (?)
         self.placement_campusdatestart = ''
         self.placement_campusdateend = ''
         self.placement_hoursavailable = 0
