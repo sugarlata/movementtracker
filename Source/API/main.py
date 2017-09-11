@@ -32,7 +32,7 @@ from kivy.properties import DictProperty
 import sqlite3 as lite
 from os.path import isfile
 from kivymd.theme_picker import MDThemePicker
-
+from db_connection import MVDatabaseConnect
 
 class MovementTracker(App):
 
