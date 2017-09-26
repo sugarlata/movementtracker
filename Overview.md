@@ -1,6 +1,6 @@
 # MovementTracker #
 
-###Overview of the project structure
+##Overview of the project structure
 
 The MovementTracker Application is made up of a number of modules:
 
