@@ -35,19 +35,59 @@ from kivymd.date_picker import MDDatePicker
 import datetime
 import sqlite3 as lite
 from summary_model import FilterType
+from interactive_pie import InteractivePie
 
 # TODO Code up login screen
 Builder.load_string('''
 
 <SummaryScreen>
 
-    MDLabel:
-        halign: 'center'
-        valign: 'center'
-        font_style: 'Display2'
-        text: 'Summary Screen'
+    # MDLabel:
+    #     halign: 'center'
+    #     valign: 'center'
+    #     font_style: 'Display2'
+    #     text: 'Summary Screen'
 
-''')
+    ScrollView:
+        size_hint: 1, 1
+
+        GridLayout:
+            id: full_layout
+            cols: 1
+            padding: dp(10)
+            size_hint: 1, None
+            height: dp(1000)
+
+            RelativeLayout:
+                size_hint: 1, None
+                height: dp(50)
+
+                canvas:
+                    Color:
+                        rgb: 0,0,1,1
+                    Rectangle:
+                        size: self.size
+                        pos: 0,0
+
+            GridLayout:
+                id: pie_layout
+                cols: 1
+                size_hint: 1, None
+                height: 1000
+
+
+            # RelativeLayout:
+            #     size_hint: 1, None
+            #     height: dp(50)
+            #
+            #     canvas:
+            #         Color:
+            #             rgb: 0,0,1,1
+            #         Rectangle:
+            #             size: self.size
+            #             pos: 0,0
+
+    ''')
 
 
 class SummaryScreen(Screen):
@@ -55,7 +95,7 @@ class SummaryScreen(Screen):
     app_class = ObjectProperty()
     # Filter Types:
     # 'currentcakelevel', 'local', 'levelinvolvement', 'levelleadership', 'spiritualstate', 'active'
-    filter_list = ['currentcakelevel']
+    filter_list = ['currentcakelevel', 'levelinvolvement']
     filter_dictionary = {}
 
     def on_pre_enter(self, *args):
@@ -64,6 +104,21 @@ class SummaryScreen(Screen):
             self.filter_dictionary[f] = FilterType(f, self.app_class.campus_id)
             self.filter_dictionary[f].load_data()
 
-            attrib_values = self.filter_dictionary[f].chart_data.get_all_breakdowns()
-            attr = attrib_values.keys()[0]
+            # attrib_values = self.filter_dictionary[f].chart_data.get_all_breakdowns()
+            formatted_data = {u: {'%s %s' % (v.attrib_dict['person_fname'], v.attrib_dict['person_lname']):
+                              v.attrib_dict['student_%s' % f]} for u,v in
+                              self.filter_dictionary[f].nd_get_all_students().items()}
+
+            tp = InteractivePie()
+
+            print
+            for u,v in formatted_data.items():
+                print f, u, v
+            tp.load_entries(formatted_data)
+
+            self.ids.pie_layout.add_widget(tp)
+
+        self.ids.pie_layout.height = (self.ids.pie_layout.width / 3) * len(self.ids.pie_layout.children)
+
+
 

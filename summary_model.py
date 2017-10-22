@@ -12,16 +12,16 @@ class FilterType:
         self.chart_data.load_data(self.campus_id)
 
     def cd_get_all_breakdown(self):
-        self.chart_data.get_all_breakdowns()
+        return self.chart_data.get_all_breakdowns()
 
     def nd_close_mv_conn(self):
         self.chart_data.name_data.close_mv_conn()
 
     def nd_get_list_students(self, attrib_val):
-        self.chart_data.name_data.get_list_students(attrib_val)
+        return self.chart_data.name_data.get_list_students(attrib_val)
 
     def nd_get_all_students(self):
-        self.chart_data.name_data.get_all_students()
+        return self.chart_data.name_data.get_all_students()
 
 
 class ChartData:
@@ -36,6 +36,7 @@ class ChartData:
     def get_all_breakdowns(self):
 
         students = self.name_data.get_all_students()
+        print students
         attrib_list = list(set(v.attrib_dict['student_%s' % self.filter_name]
                                for v in students.values()))
 

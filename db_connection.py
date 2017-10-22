@@ -11,7 +11,7 @@ class MVConnection:
         host = 'localhost'
         user = 'nathan'
         passwd = 'nothing'
-        dbname = 'campus_movements'
+        dbname = 'campus_movements_v2'
         self.db_set(host, user, passwd, dbname)
 
     def db_set(self, host, user, passwd, dbname):

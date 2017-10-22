@@ -80,7 +80,8 @@ class MovementTracker(App):
     # Before opening screen, do this:
 
     def on_start(self):
-        self.navigate_to('Summary Screen', 'left')
+        pass
+        # self.navigate_to('Summary Screen', 'left')
 
 
 if __name__ == '__main__':
